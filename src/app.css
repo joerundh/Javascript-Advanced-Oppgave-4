@@ -1,0 +1,137 @@
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+:root {
+    --chessboard-light: #ffffff;
+    --chessboard-dark: #f2f2f2;
+    --chessboard: conic-gradient(
+            var(--chessboard-light) 0deg,
+            var(--chessboard-light) 90deg,
+            var(--chessboard-dark) 90deg,
+            var(--chessboard-dark) 180deg,
+            var(--chessboard-light) 180deg,
+            var(--chessboard-light) 270deg,
+            var(--chessboard-dark) 270deg,
+            var(--chessboard-dark) 360deg
+        ) repeat top center / 20px 20px;
+}
+
+#app > * {
+    /*
+    animation: name duration timing-function delay iteration-count direction fill-mode;
+    */
+    --spin-anim: spin 1500ms linear infinite;
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#app > * > div, #app > * > p {
+    margin: 5px;
+}
+
+label {
+    margin: 0;
+    padding: 0;
+}
+
+#latex-input {
+    width: 100%;
+    height: 200px;
+    resize: none;
+    font-size: 1.2em;
+}
+
+#copy-latex {
+    mask-size: 20px 20px;
+    mask-position: center center;
+    mask-image: url("./copy-icon.svg");
+    background-color: lightgrey;
+    mask-repeat: no-repeat;
+    filter: contrast(-100%);
+    width: 0;
+    height: 0;
+    position: fixed;
+    transform: translate(945%, -340%);
+    width: 30px;
+    height: 30px;
+}
+
+.insertion {
+    width: 40px;
+    height: 40px;
+    background-size: 30px 30px;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+#settings {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#scale-input {
+    padding: 5px 0;
+}
+
+#buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#latex-render, #latex-reset {
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#latex-result {
+    --result-font-size: 1rem;
+    font-size: var(--result-font-size);
+    width: 100%;
+    height: 250px;
+    color: black;
+    background: var(--chessboard);
+    box-sizing: border-box;
+    border: 1px solid grey;
+    border-radius: 3px;
+    overflow: auto;
+    padding: 10px;
+}
+
+#save-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#save-as-svg, #save-as-png {
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
